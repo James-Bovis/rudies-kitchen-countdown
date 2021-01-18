@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   margin-bottom: 20px;
-  font-size: 40px;
+  font-size: 50px;
 `;
 
 const CountdownWrapper = styled.div`
@@ -70,7 +70,7 @@ const CountdownItem = styled.div`
 
 export default function App() {
   const [date, setDate] = React.useState(new Date());
-  const rudiesLaunchDate = new Date("March 15, 2021 09:00:00");
+  const rudiesLaunchDate = new Date("March 15, 2021 10:00:00");
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -109,9 +109,9 @@ export default function App() {
       {
         differenceInSeconds(rudiesLaunchDate, date) > 0
           ? (
-            <Title>Rudies Kitchen goes live in...</Title>
+            <Title>Rudie's goes live in....</Title>
           ) : (
-            <Title>Rudies Kitchen is...</Title>
+            <Title>Rudies Kitchen is... Live! <span aria-label='tada' role='img'>🎉</span></Title>
           )
       }
       <CountdownWrapper>
@@ -135,9 +135,24 @@ export default function App() {
             </CountdownItem>
           </React.Fragment>
         ) : (
-          <CountdownItem>
-            {`Live! 🎉`}
-          </CountdownItem>
+          <React.Fragment>
+            <CountdownItem>
+              { 0 }
+              <span>{"Days"}</span>
+            </CountdownItem>
+            <CountdownItem>
+              { 0 }
+              <span>{`Hours`}</span>
+            </CountdownItem>
+            <CountdownItem>
+              { 0 }
+              <span>{`Minutes`}</span>
+            </CountdownItem>
+            <CountdownItem>
+              { 0 }
+              <span>{"Seconds"}</span>
+            </CountdownItem>
+          </React.Fragment>
         )}
       </CountdownWrapper>
     </Wrapper>
